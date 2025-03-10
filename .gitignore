@@ -1,0 +1,28 @@
+# Ignore the virtual environment
+venv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore logs and environment files
+*.log
+.env
+.env.local
+.env.*.local
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore database files (if using SQLite)
+*.db
+*.sqlite3
+
+# Ignore dependencies installed via poetry (if used)
+poetry.lock
+
