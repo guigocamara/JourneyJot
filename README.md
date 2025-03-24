@@ -11,7 +11,7 @@ JourneyJot is an open-source traveling app that helps users discover the best fo
 - **Backend**: FastAPI (Python)
 - **Database**: MongoDB (optional for storing user data and favorites)
 - **Frontend**: React (coming soon)
-- **APIs**: Yelp, Google, and Reddit APIs for food spot data
+- **APIs**: Google Places API for food spot data
 
 ## Installation
 
