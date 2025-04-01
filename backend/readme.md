@@ -32,3 +32,17 @@ Confirm it's set by running echo %GOOGLE_PLACES_KEY%
 
 ```
 
+
+
+
+### 🖥️ How to run Virtual Environment
+
+## **Windows**
+- Navigate to project folder in command line
+- Run ```bash venv\Scripts\activate ```bash
+- Run the server with ```bash uvicorn backend.main:app --reload ```
+
+For Mac/Linux, run ```bash source venv/bin/activate ```bash initially instead
+
+To exit the virtual environment, press Ctrl + C
+
