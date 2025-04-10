@@ -1,8 +1,28 @@
 import os
 import httpx
 from fastapi import FastAPI, Query
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:5173"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+api_key = os.getenv("GOOGLE_PLACES_KEY")
+if not api_key:
+    raise ValueError("GOOGLE_PLACES_KEY environment variable is not set.")
+
+headers = {
+    "Authorization": f"Bearer {api_key}"
+},
 
 GOOGLE_PLACES_KEY = os.getenv("GOOGLE_PLACES_KEY")
 
