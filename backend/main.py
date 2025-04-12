@@ -74,23 +74,28 @@ async def get_top_chinese_restaurants():
 async def get_route_waypoints(start: str, end: str, mode: str):
     """Fetch route waypoints using Google Directions API"""
     directions_url = "https://maps.googleapis.com/maps/api/directions/json"
-    async with httpx.AsyncClient() as client:
-        response = await client.get(directions_url, params={
-            "origin": start,
-            "destination": end,
-            "mode": mode,
-            "key": GOOGLE_PLACES_KEY
-        })
 
-    if response.status_code != 200:
+    try:
+        async with httpx.AsyncClient() as client:
+            response = await client.get(directions_url, params={
+                "origin": start,
+                "destination": end,
+                "mode": mode,
+                "key": GOOGLE_PLACES_KEY
+            })
+        response.raise_for_status()
+    except httpx.HTTPError as e:
+        print(f"Error fetching directions: {e}")
         return None
-    
+
     data = response.json()
-    if not data.get("routes"):
+    routes = data.get("routes")
+    if not routes:
         return None
 
     waypoints = []
-    for leg in data["routes"][0]["legs"]:
+    legs = routes[0]["legs"]
+    for leg in legs:
         for step in leg["steps"]:
             waypoints.append(step["start_location"])  # Capture lat/lng along the route
 
