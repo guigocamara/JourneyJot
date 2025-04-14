@@ -10,6 +10,7 @@ import "./App.css";
 import AttributesPage from "./pages/attributes-page.tsx";
 import ResultsPage from "./pages/results-page.tsx";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +37,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 );

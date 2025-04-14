@@ -4,6 +4,10 @@ import { Input } from "@chakra-ui/react";
 import { Card } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import ChineseRestaurants from "./ChineseRestaurants";
+import { Stack } from "@chakra-ui/react";
+
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -29,6 +33,11 @@ const LandingPage: React.FC = () => {
         >
           Next Page
         </Button>
+        <Stack>
+          <div className="text-9xl">WELCOME TO JOURNEY JOT</div>
+          <Link to="/">Go back to Homepage</Link>
+          <ChineseRestaurants />
+        </Stack>
       </div>
     </Provider>
   );
